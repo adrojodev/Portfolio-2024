@@ -1,28 +1,28 @@
 {
   "jobs": [
     {
-      "company": "Bueno",
+      "company": "Bueno (Blush Inc.)",
       "startYear": "2022",
       "endYear": "Present",
-      "text": "At Bueno I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+      "text": "At Bueno, I flourished as a Front-End Developer, where crafting pixel-perfect interfaces was my jam. Collaborating closely with designers, I juggled multiple projects, seamlessly integrating front-end magic with backend JavaScript and databases, all with an unwavering focus on detail."
     },
     {
       "company": "Together",
       "startYear": "2022",
       "endYear": "Present",
-      "text": "At Together I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+      "text": "At Together, I embraced the role of Front-End Developer, pioneering web-based video game projects and empowering designers to craft websites with no-code tools. Beyond coding, I was instrumental in democratizing design, sharing our creative vision with the world."
     },
     {
       "company": "BBVA",
       "startYear": "2021",
       "endYear": "2022",
-      "text": "At BBVA I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+      "text": "At BBVA, as a UX Designer, I honed in on enhancing the mobile app experience, tailoring designs to the nuanced needs of banking, insurance, and wealth market sectors. My mission: to elevate user interaction across various products, ensuring elegance and efficiency."
     },
     {
       "company": "Berrinche Studio",
       "startYear": "2018",
       "endYear": "2021",
-      "text": "At Berrinche Studio I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+      "text": "At Berrinche Studio, my brainchild, I spearheaded efforts to attract clients, crafting the studio's identity with a keen eye. Specializing in tech-heavy giants, we delivered bespoke websites, apps, and more, blending design and development to breathe life into our clients' visions."
     }
   ]
 }

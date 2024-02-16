@@ -50,6 +50,14 @@
       ]
     },
     {
+      "id": "lummi",
+      "name": "Lummi",
+      "company": "Bueno",
+      "url": "https://lummi.ai/",
+      "protected": false,
+      "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
+    },
+    {
       "id": "keep-it-short",
       "name": "Keep it short",
       "date": "2023",
