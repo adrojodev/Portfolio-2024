@@ -1,0 +1,62 @@
+{
+  "projects": [
+    {
+      "id": "musho",
+      "name": "Musho",
+      "date": "2023",
+      "company": "Bueno",
+      "url": "https://musho.ai/",
+      "protected": false,
+      "tags": [
+        "AI",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "Neon",
+        "Prisma",
+        "Auth0"
+      ]
+    },
+    {
+      "id": "buenoverse",
+      "name": "Buenoverse",
+      "date": "2023",
+      "company": "Bueno",
+      "url": "https://worlds.bueno.art/",
+      "protected": false,
+      "tags": [
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "DynamoDB",
+        "AWS",
+        "Auth0"
+      ]
+    },
+    {
+      "id": "wrestle",
+      "name": "Wrestle",
+      "date": "2023",
+      "company": "Together",
+      "url": "https://www.humankind.art/wrestle",
+      "protected": false,
+      "tags": [
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "Firebase",
+        "AWS",
+        "Web3"
+      ]
+    },
+    {
+      "id": "keep-it-short",
+      "name": "Keep it short",
+      "date": "2023",
+      "company": "Self project",
+      "url": "https://www.keepitshort.xyz/",
+      "protected": false,
+      "tags": ["Javascript", "Next.js", "Tailwind CSS", "AI"]
+    }
+  ]
+}

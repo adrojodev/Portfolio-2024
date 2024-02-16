@@ -1,0 +1,49 @@
+---
+import Heading from "../../components/Heading.astro";
+import data from "../../data/socials.json";
+
+const { linkedin, github, x, instagram, mail } = data.socials;
+---
+
+<section id="connect" class="flex flex-col gap-3">
+  <Heading>Let's connect</Heading>
+  <div class="flex gap-3">
+    <a
+      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
+      href={x}
+      ><img src="/icons/XIcon.svg" alt="x logo" class="md:w-8 md:h-8" /></a
+    >
+    <a
+      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
+      href={github}
+      ><img src="/icons/GithubLogo.svg" alt="x logo" class="md:w-8 md:h-8" /></a
+    >
+    <a
+      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
+      href={linkedin}
+      ><img
+        src="/icons/LinkedinLogo.svg"
+        alt="x logo"
+        class="md:w-8 md:h-8"
+      /></a
+    >
+    <a
+      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
+      href={instagram}
+      ><img
+        src="/icons/InstagramLogo.svg"
+        alt="x logo"
+        class="md:w-8 md:h-8"
+      /></a
+    >
+    <a
+      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
+      href={mail}
+      ><img
+        src="/icons/EnvelopeSimple.svg"
+        alt="x logo"
+        class="md:w-8 md:h-8"
+      /></a
+    >
+  </div>
+</section>

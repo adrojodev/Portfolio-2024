@@ -1,0 +1,28 @@
+---
+import Button from "../../components/Button.astro";
+---
+
+<section
+  id="heading"
+  class="flex flex-col justify-center h-[84vh] gap-4 md:flex-row-reverse md:justify-between md:items-center"
+>
+  <img
+    class="-ml-16 -mt-16 -mb-16 w-[200px] md:w-[700px] md:h-[615px] md:-ml-48 md:mt-0 md:mb-0 md:-mr-40"
+    src="/images/Profile.png"
+    alt="A memoji of myself with a colored blurred bubble behind me"
+  />
+  <div class="flex flex-col md:w-full gap-4">
+    <div class="flex flex-col items-start gap-2">
+      <h1
+        class="font-black text-[2.5rem] leading-[2rem] w-[21rem] text-heading md:text-7xl md:w-full md:leading-[3.5rem]"
+      >
+        Elite front-end dev that knows design
+      </h1>
+      <p class="md:text-2xl">
+        Hi! My name is <span class="font-bold text-accent">Rojo</span>, I'm a
+        front-end dev with UX and customer service background.
+      </p>
+    </div>
+    <Button href="#connect">Let's connect</Button>
+  </div>
+</section>

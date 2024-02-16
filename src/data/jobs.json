@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "company": "Bueno",
+      "startYear": "2022",
+      "endYear": "Present",
+      "text": "At Bueno I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+    },
+    {
+      "company": "Together",
+      "startYear": "2022",
+      "endYear": "Present",
+      "text": "At Together I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+    },
+    {
+      "company": "BBVA",
+      "startYear": "2021",
+      "endYear": "2022",
+      "text": "At BBVA I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+    },
+    {
+      "company": "Berrinche Studio",
+      "startYear": "2018",
+      "endYear": "2021",
+      "text": "At Berrinche Studio I worked a lot and I'm happy cause this is super cool and I'm happy and bla bla bla, this is the most fun part and I made this thing and thats."
+    }
+  ]
+}

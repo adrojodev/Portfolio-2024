@@ -1,0 +1,49 @@
+---
+import Heading from "../../components/Heading.astro";
+import data from "../../data/updates.json";
+
+const { music, learning, book } = data.updates;
+---
+
+<section id="updates" class="flex flex-col gap-2">
+  <Heading>Updates</Heading>
+  <div class="flex gap-1 md:text-lg">
+    <img
+      src="/icons/Backpack.svg"
+      alt="Backpack"
+      class="w-6 h-6 md:w-8 md:h-8"
+    />
+    <span
+      >Currently learning <span class="font-bold text-accent">{learning}</span
+      ></span
+    >
+  </div>
+  <div class="flex gap-1 md:text-lg">
+    <img
+      src="/icons/BookBookmark.svg"
+      alt="Backpack"
+      class="w-6 h-6 md:w-8 md:h-8"
+    />
+    <span
+      >I'm reading this <a
+        class="font-bold text-accent md:hover:underline"
+        href={book}
+        target="_blank">book</a
+      ></span
+    >
+  </div>
+  <div class="flex gap-1 md:text-lg">
+    <img
+      src="/icons/CassetteTape.svg"
+      alt="Backpack"
+      class="w-6 h-6 md:w-8 md:h-8"
+    />
+    <span
+      >This is my top <a
+        class="font-bold text-accent md:hover:underline"
+        href={music}
+        target="_blank">music</a
+      > now</span
+    >
+  </div>
+</section>
