@@ -52,10 +52,20 @@
     {
       "id": "lummi",
       "name": "Lummi",
+      "date": "2023",
       "company": "Bueno",
       "url": "https://lummi.ai/",
       "protected": false,
       "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
+    },
+    {
+      "id": "happy-places",
+      "name": "Happy Places",
+      "date": "2024",
+      "company": "Self project",
+      "url": "https://apps.apple.com/mx/app/happy-places-ive-been/id6478132857",
+      "protected": false,
+      "tags": ["Swift", "MapKit", "SwiftData", "SwiftUI", "Figma"]
     },
     {
       "id": "keep-it-short",
