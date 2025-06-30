@@ -1,21 +1,13 @@
 {
   "projects": [
     {
-      "id": "musho",
-      "name": "Musho",
+      "id": "lummi",
+      "name": "Lummi",
       "date": "2023",
       "company": "Bueno",
-      "url": "https://musho.ai/",
+      "url": "https://lummi.ai/",
       "protected": false,
-      "tags": [
-        "AI",
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS",
-        "Neon",
-        "Prisma",
-        "Auth0"
-      ]
+      "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
     },
     {
       "id": "buenoverse",
@@ -50,13 +42,21 @@
       ]
     },
     {
-      "id": "lummi",
-      "name": "Lummi",
+      "id": "musho",
+      "name": "Musho",
       "date": "2023",
       "company": "Bueno",
-      "url": "https://lummi.ai/",
+      "url": "https://www.youtube.com/watch?v=ubtINDoCttw",
       "protected": false,
-      "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
+      "tags": [
+        "AI",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "Neon",
+        "Prisma",
+        "Auth0"
+      ]
     },
     {
       "id": "happy-places",
