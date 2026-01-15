@@ -1,15 +1,21 @@
 {
   "jobs": [
     {
+      "company": "Lyft",
+      "startYear": "2024",
+      "endYear": "Present",
+      "text": "At Lyft, I work as a Software Engineer, where I am responsible for building and maintaining the Lyft B2B platform. I work as a full-stack developer, working on the frontend and backend of the platform with cross-functional teams to deliver the best experience for our drivers and customers."
+    },
+    {
       "company": "Bueno (Blush Inc.)",
       "startYear": "2022",
-      "endYear": "Present",
+      "endYear": "2024",
       "text": "At Bueno, I flourished as a Front-End Developer, where crafting pixel-perfect interfaces was my jam. Collaborating closely with designers, I juggled multiple projects, seamlessly integrating front-end magic with backend JavaScript and databases, all with an unwavering focus on detail."
     },
     {
       "company": "Together",
       "startYear": "2022",
-      "endYear": "Present",
+      "endYear": "2023",
       "text": "At Together, I embraced the role of Front-End Developer, pioneering web-based video game projects and empowering designers to craft websites with no-code tools. Beyond coding, I was instrumental in democratizing design, sharing our creative vision with the world."
     },
     {

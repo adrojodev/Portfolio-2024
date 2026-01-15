@@ -10,6 +10,41 @@
       "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
     },
     {
+      "id": "mini-briefs",
+      "name": "Mini Briefs",
+      "date": "2025",
+      "company": "Self project",
+      "url": "https://www.minibriefs.news/",
+      "protected": false,
+      "tags": [
+        "React",
+        "Gemini API",
+        "PostgreSQL",
+        "Google Cloud",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "id": "happy-scroll",
+      "name": "Happy Scroll",
+      "date": "2025",
+      "company": "Self project",
+      "url": "https://www.happyscroll.app/",
+      "protected": false,
+      "tags": ["AI", "Swift", "SwiftUI", "SwiftData"]
+    },
+    {
+      "id": "happy-places",
+      "name": "Happy Places",
+      "date": "2024",
+      "company": "Self project",
+      "url": "https://apps.apple.com/mx/app/happy-places-ive-been/id6478132857",
+      "protected": false,
+      "tags": ["MapKit", "Figma", "Swift", "SwiftData", "SwiftUI"]
+    },
+    {
       "id": "buenoverse",
       "name": "Buenoverse",
       "date": "2023",
@@ -17,12 +52,12 @@
       "url": "https://worlds.bueno.art/",
       "protected": false,
       "tags": [
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS",
         "DynamoDB",
         "AWS",
-        "Auth0"
+        "Auth0",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS"
       ]
     },
     {
@@ -33,12 +68,12 @@
       "url": "https://www.humankind.art/wrestle",
       "protected": false,
       "tags": [
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS",
+        "Web3",
         "Firebase",
         "AWS",
-        "Web3"
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS"
       ]
     },
     {
@@ -50,22 +85,13 @@
       "protected": false,
       "tags": [
         "AI",
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS",
+        "Auth0",
         "Neon",
         "Prisma",
-        "Auth0"
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS"
       ]
-    },
-    {
-      "id": "happy-places",
-      "name": "Happy Places",
-      "date": "2024",
-      "company": "Self project",
-      "url": "https://apps.apple.com/mx/app/happy-places-ive-been/id6478132857",
-      "protected": false,
-      "tags": ["Swift", "MapKit", "SwiftData", "SwiftUI", "Figma"]
     },
     {
       "id": "keep-it-short",
@@ -74,7 +100,7 @@
       "company": "Self project",
       "url": "https://www.keepitshort.xyz/",
       "protected": false,
-      "tags": ["Javascript", "Next.js", "Tailwind CSS", "AI"]
+      "tags": ["AI", "Javascript", "Next.js", "Tailwind CSS"]
     }
   ]
 }
