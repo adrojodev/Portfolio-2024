@@ -33,6 +33,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .site-header { display: flex; align-items: center; justify-content: space-between; min-height: 100px; padding-block: 24px; gap: 16px; }
 .wordmark { font-size: 2rem; font-weight: 850; letter-spacing: -.075em; line-height: 1; }
 .wordmark, .footer-wordmark { --wordmark-base: var(--ink); }
+.wordmark-text, .wordmark-dot { display: inline-block; line-height: 1.2; padding: .12em; margin: -.12em; vertical-align: baseline; }
 .wordmark-text { color: var(--wordmark-base); transition: color .4s ease; }
 .wordmark-dot { color: var(--orange); transition: color .4s ease; }
 :is(.wordmark, .footer-wordmark):is(:hover, :focus-visible) .wordmark-text { color: var(--orange); }
