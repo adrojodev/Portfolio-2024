@@ -68,7 +68,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   'lyft-business': {
     headline: 'Building for the business side of Lyft.',
     intro: 'I’m a software engineer at Lyft, working on Lyft Business. My work spans frontend initiatives and full-stack development.',
-    caption: 'Public imagery from the Lyft Business website. Photography © Lyft.',
+    caption: 'Public imagery from the Lyft Business website. Photo credit: Lyft.',
     actions: [{ label: 'Lyft Business — public website', url: 'https://www.lyft.com/business' }],
     sections: [
       { label: 'The product', title: 'Transportation for businesses.', paragraphs: ['Lyft Business offers transportation products for organizations. The linked public website introduces its services and the people they serve.'] },

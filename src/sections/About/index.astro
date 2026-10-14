@@ -1,6 +1,15 @@
 ---
+import Jobs from '../Jobs/index.astro';
+import Updates from '../Updates/index.astro';
 ---
 <section id="about" class="section about-section">
   <h2>I love a<br />good interface.</h2>
-  <div id="updates" class="about-copy"><p>I love UI design: the typography, the interactions, and the small decisions that make a product feel right.</p><p>That curiosity is why I keep making things: exploring ideas, building my own apps, and refining them until they feel worth using.</p><a id="jobs" class="text-link" href="/about/">More about me <span aria-hidden="true">↗</span></a></div>
+  <div class="about-copy"><p>I love UI design: the typography, the interactions, and the small decisions that make a product feel right. I like being involved from the first idea through implementation, shaping the experience through both design and code.</p><p>My own apps give me room to explore ideas and experiment. I set the product direction, work with AI coding agents on design and implementation, and keep reviewing and refining the result until it feels worth using.</p><a class="button" href="/cv/">See my CV</a></div>
+  <details class="section-disclosure about-disclosure">
+    <summary><span class="disclosure-closed">More about me</span><span class="disclosure-open">Less about me</span></summary>
+    <div class="about-expanded">
+      <Jobs compact />
+      <Updates compact />
+    </div>
+  </details>
 </section>

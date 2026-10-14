@@ -1,0 +1,22 @@
+---
+interface Props {
+  direction?: 'up-right' | 'right' | 'down' | 'up';
+  size?: number;
+  class?: string;
+  swipe?: boolean;
+}
+const { direction = 'up-right', size = 20, class: className = '', swipe = false } = Astro.props;
+const paths = {
+  'up-right': 'M6 18 18 6M6 6h12v12',
+  right: 'M4 12h16m-7-7 7 7-7 7',
+  down: 'M12 4v16m-7-7 7 7 7-7',
+  up: 'M12 20V4m-7 7 7-7 7 7',
+};
+---
+{swipe ? (
+  <span class="swipe-arrow" style={`width:${size}px;height:${size}px;`} aria-hidden="true">
+    {[false, true].map(overlay => <svg class:list={['ui-icon', { 'swipe-arrow-color': overlay }]} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[direction]} /></svg>)}
+  </span>
+) : (
+  <svg class:list={['ui-icon', className]} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[direction]} /></svg>
+)}

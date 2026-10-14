@@ -1,5 +1,6 @@
 ---
 import ProductPreview from './ProductPreview.astro';
+import ArrowIcon from './ArrowIcon.astro';
 import type data from '../data/projects.json';
 interface Props { project: (typeof data.projects)[number]; }
 const { project } = Astro.props;
@@ -11,7 +12,7 @@ const href = internal ? `/projects/${project.id}/` : project.url;
     <ProductPreview id={project.id} />
     <div class="project-copy">
       <div class="project-meta"><span>{project.platform}</span><span>{project.date}</span></div>
-      <h3>{project.name}<span aria-hidden="true" class="project-arrow">↗</span></h3>
+      <h3>{project.name}<ArrowIcon size={24} class="project-arrow" /></h3>
       <p>{project.summary}</p>
       <div class="project-role">{project.role}</div>
     </div>

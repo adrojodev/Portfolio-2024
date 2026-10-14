@@ -1,14 +1,3 @@
 ---
-import Card from '../../components/Card.astro';
-import Layout from '../../layouts/Layout.astro';
-import data from '../../data/projects.json';
-const selected = data.projects.filter(project => 'caseStudy' in project && project.caseStudy);
-const archive = data.projects.filter(project => !('caseStudy' in project && project.caseStudy));
+return Astro.redirect('/#projects', 301);
 ---
-<Layout title="Projects — Rojo" description="AI creative tools, independent iOS apps, and production systems. Selected projects and earlier experiments by Rojo.">
-  <main id="main" class="page-width" tabindex="-1">
-    <div class="page-intro"><h1>Made. Shipped.<br />Still curious.</h1><p>Independent products, things we built together, and experiments along the way. Here’s where design meets implementation.</p></div>
-    <section aria-labelledby="selected-title" class="section archive-section"><div class="section-heading"><h2 id="selected-title">Projects</h2></div><div class="project-grid">{selected.map(project => <Card project={project} />)}</div></section>
-    <section id="archive" aria-labelledby="archive-title" class="section archive-section"><div class="section-heading"><h2 id="archive-title">Earlier work & experiments</h2></div><div class="project-grid archive-grid">{archive.map(project => <Card project={project} />)}</div></section>
-  </main>
-</Layout>

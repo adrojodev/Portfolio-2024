@@ -1,8 +1,12 @@
 ---
 import data from '../../data/jobs.json';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const Heading = compact ? 'h3' : 'h2';
+const CompanyHeading = compact ? 'h4' : 'h3';
 ---
-<section id="jobs" class="section experience-section">
-  <div class="section-heading"><div><p class="eyebrow">Experience</p><h2>Different teams.<br />A shared way of working.</h2></div></div>
-  <p class="experience-note">Several startup roles overlapped. These are distinct product and employment identities, rather than a sequence of unrelated full-time jobs.</p>
-  <ol class="experience-list">{data.jobs.map(job => <li><div class="job-heading"><h3>{job.company}</h3><span>{job.start} — {job.end}</span></div><div><p class="job-role">{job.role}</p><p>{job.text}</p></div></li>)}</ol>
+<section id="jobs" class:list={['section', 'experience-section', { 'embedded-section': compact }]}>
+  <div class="section-heading"><div>{!compact && <p class="eyebrow">Experience</p>}<Heading>{compact ? 'Experience' : <>Different teams.<br />A shared way of working.</>}</Heading></div></div>
+  {!compact && <p class="experience-note">Several startup roles overlapped. These are distinct product and employment identities, rather than a sequence of unrelated full-time jobs.</p>}
+  <ol class="experience-list">{data.jobs.map(job => <li><div class="job-heading"><CompanyHeading>{job.company}</CompanyHeading><span>{job.start} — {job.end}</span></div><div><p class="job-role">{job.role}</p><p>{job.text}</p></div></li>)}</ol>
 </section>

@@ -123,3 +123,59 @@ At the owner’s request, Musho and Lummi now describe collaboration without nam
 ## Production release — October 14, 2026
 
 The owner authorized pushing the completed redesign to production. The verified target is Vercel project `portfolio-2024`, connected to `adrojodev/Portfolio-2024`, with `www.adrojo.com` as the production domain and `main` as the production branch. Final local Astro build, nine-page static checks, and whitespace validation passed before the release. Earlier statements about not publishing refer to the earlier design and content review stages.
+
+## Single-page Work and About — October 14, 2026
+
+Work and About are now homepage sections. Five project cards are visible initially; a native “See all work” disclosure reveals the five remaining cards and changes its label to “Hide extra projects”. About keeps its short introduction and reveals additional background, the shared experience timeline, and personal bookmarks through “More about me”. The hardware-tech interest change is included. The CV and all five project detail pages remain separate. Main navigation always points to homepage section anchors; the old `/about/` and `/projects/` URLs redirect to those sections. Links to `#jobs`, `#updates`, and `#archive` reveal the relevant disclosure.
+
+Astro build passed with zero diagnostics. Static checks passed for seven content pages and two legacy redirects. Browser checks covered disclosure opening and closing, keyboard operation, CV and project navigation back to homepage anchors, redirect destinations, and hidden-section deep links. At 320, 390, 768, and 1280 CSS pixels, expanded and collapsed layouts had no horizontal overflow and thumbnails remained uniform. No production-preview browser errors or warnings were captured. Screenshots: `single-page-overview.jpg`, `single-page-about-expanded.jpg`, and `single-page-about-mobile.jpg`. This change is local and has not been deployed.
+
+## Shared button and card motion — October 14, 2026
+
+Project cards now share the buttons’ 2px upward lift and solid 4px sand shadow through a shared CSS shadow token. Cards apply the same treatment on keyboard focus. Dine’s icon and phone are grouped in one artwork layer, so they animate together with the same 1.025 scale and 350ms transition as the other cover images. The phone tilt and icon position are preserved. Reduced-motion styling suppresses the hover/focus transforms.
+
+Build, static-site checks, and whitespace validation passed. Browser inspection confirmed an actual Dine hover transform of `translateY(-2px)`, a 4px shadow, and artwork scaling to 1.025; keyboard focus also triggered the shared treatment. At 390 CSS pixels, both Dine images loaded, the thumbnail retained its 4:3 ratio, and the page had no horizontal overflow. No browser errors or warnings were captured. OS-level reduced-motion emulation was not exercised. `dine-card-lift.jpg` shows the updated card. This change is local and has not been deployed.
+
+## About copy consolidated — October 14, 2026
+
+The four About paragraphs are merged into two visible paragraphs that cover UI interests, involvement from idea through implementation, independent product direction, and work with AI coding agents. The disclosure now opens only the experience timeline and interests. The CV link is a shared orange button labeled “See my CV”, linking to `/cv/`, with white text and the existing hover treatment. Unused expanded-background layout rules were removed. Build and static checks passed; browser inspection confirmed two introductory paragraphs, the shared button colors, no desktop/mobile overflow, and successful navigation to the CV. `about-two-paragraphs.jpg` captures this revision. This change is local and has not been deployed.
+
+## Hero link refinement — October 14, 2026
+
+Shared text links now use a continuous bottom border across the label, gap, and external arrow. The hero LinkedIn link keeps its 8px arrow spacing. The internal hero CV link has no arrow. The shared LinkedIn URL is replaced with the owner-supplied `https://www.linkedin.com/in/david-hernández-45690112a`, updating Home, Contact, and CV together. Print styles suppress the new link border to preserve the previous printable layout. Browser inspection confirmed the new URL, continuous border, spacing, and arrow-free CV link; mobile had no horizontal overflow. `hero-links-continuous.jpg` captures the links. This change is local and has not been deployed.
+
+## Fixed navigation — October 14, 2026
+
+The navigation pill is fixed at the top right, aligned with the page width on desktop and using the existing page gutters on tablet/mobile. The wordmark remains in the normal header flow. Header space is reserved to preserve the initial layout, and section scrolling leaves 100px of clearance for the menu. Browser inspection confirmed the pill stayed 24px from the viewport top after scrolling 1800px; at 390px and 320px widths it stayed 20px from the top without horizontal overflow. Work/About anchor links continued to work and the About heading remained below the menu. Build and static-site checks passed, with no browser errors or warnings captured. `fixed-navigation-desktop.jpg` records the menu while scrolled. This change is local and has not been deployed.
+
+## Next-project color sweep — October 14, 2026
+
+All five project-detail next links now transition from dark text to the original orange with a left-to-right gradient sweep across the text and arrow. Hover and keyboard focus share a 400ms transition. Browsers without text clipping fall back to a normal orange color transition; reduced-motion styling makes the change immediate. The browser check observed the clipped-text background progressing from 100% through an intermediate position to 0% on keyboard focus, confirmed a 400ms duration, and found no horizontal overflow at 390 CSS pixels or browser errors. Build and static-site checks passed. `next-project-swipe.jpg` shows the orange keyboard-focus state. This change is local and has not been deployed.
+
+## Email color sweep — October 14, 2026
+
+The contact email is dark by default and reuses the next-project links’ 400ms left-to-right orange sweep on hover and keyboard focus. Its underline uses a synchronized second gradient so the text and line sweep together. The mailto destination is unchanged. The browser confirmed dark initial rendering, matching intermediate text/underline positions, the completed orange state, and no mobile horizontal overflow or console errors. Build, static-site, and whitespace checks passed. `email-black-swipe.jpg` shows the initial state. This change is local and has not been deployed.
+
+## Design and code typography — October 14, 2026
+
+The hero’s “design” uses Caveat 700, a handwritten cursive face, and “code” uses JetBrains Mono 700. Both keep the original orange. Their Latin font assets are self-hosted through pinned Fontsource packages (`5.3.0`) imported by the homepage hero, with the lockfile updated. Work Sans remains the primary site font. The accents use separate optical sizes and letter spacing; below 360px the headline is slightly smaller so “design and code” stays together.
+
+References: [Caveat](https://fontsource.org/fonts/caveat) and [JetBrains Mono](https://fontsource.org/fonts/jetbrains-mono). Build and static-site checks passed. Browser review confirmed the two font families and visible glyph rendering, with no horizontal overflow at 1280, 768, 390, or 320 CSS pixels and no browser errors. The 320px revision keeps the accent phrase on one line. Captures: `hero-design-code-fonts.jpg` and `hero-design-code-fonts-mobile.jpg`. This change is local and has not been deployed.
+
+## No emoji interface icons — October 14, 2026
+
+At the owner’s request, interface icons use SVG assets rather than emoji or Unicode arrows. A shared inline ArrowIcon now renders hero arrows, card arrows, project actions and references, next-project navigation, CV links/print controls, and the footer’s top link. Button icons inherit white and LinkedIn inherits blue. Disclosure indicators are drawn with CSS strokes. The next-project sweep retains an SVG arrow with a clipped orange overlay timed to follow the text sweep. Decorative SVGs are hidden from assistive technology; link labels remain readable.
+
+The site checker rejects emoji and Unicode icon glyphs in UI source and generated HTML to guard future changes. Build passed with zero diagnostics; all seven content pages and two redirects passed static checks. Mobile browser checks at 390px and 320px found no horizontal overflow; action SVGs measured 20px and the primary action’s stroke was white. Home, CV, project-action, and next-project icons were inspected; the text and SVG arrow sweep reached the completed orange state. No browser errors were captured. `svg-actions-mobile.jpg` records the mobile project buttons. Existing artwork and published app screenshots remain bitmap assets, which do not depend on platform emoji fonts. This change is local and has not been deployed.
+
+## Mobile Home control — October 14, 2026
+
+A fixed 48px Home circle on the left matches the navigation pill, using the existing House SVG. Below 600px it slides down from above the viewport once the wordmark leaves the screen, and slides back up when the wordmark returns. Hidden controls are inert and excluded from keyboard navigation. IntersectionObserver is cleaned up across Astro page transitions; reduced-motion preferences disable the transition. On home it scrolls to the header; on CV and project pages it links home.
+
+Build and static checks passed. Browser verification confirmed appearance after scrolling, disappearance after returning to the top, navigation from CV back home, no horizontal overflow at 320px, and desktop hiding. The circle and pill share the same top edge and height. No browser errors were captured. See `mobile-home-circle.jpg`. The hero LinkedIn link is now dark by default and blue only on hover or keyboard focus. These changes are local and have not been deployed.
+
+## Footer hover effects — October 14, 2026
+
+Header and footer Rojo wordmarks use the shared 400ms left-to-right orange sweep, with the dot swapping to the original text color. Back to top and its SVG arrow turn orange on hover and keyboard focus. Mexico City is a button that emits 24 Mexican flag emoji particles in a temporary canvas on mouse hover or activation; tapping and keyboard activation work too. This explicitly requested decorative emoji effect does not put glyphs into the layout or controls. The canvas ignores pointer events, is hidden from assistive technology and printing, respects reduced motion, and removes itself after 2.4 seconds. Observers and event listeners are cleaned up across Astro navigation.
+
+Build and site checks passed. Desktop browser checks confirmed completed logo sweep positions, orange Back to top text and SVG stroke, visible flag particles, and automatic canvas cleanup. Mobile checks at 390px confirmed no horizontal overflow and working Back to top while confetti played. No browser errors were captured. Captures: `footer-logo-sweep.jpg` and `mexico-flag-confetti.jpg`. These changes are local and have not been deployed.

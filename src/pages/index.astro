@@ -13,3 +13,25 @@ import About from '../sections/About/index.astro';
     <Connect />
   </main>
 </Layout>
+<script>
+  function revealLinkedSection() {
+    let id: string;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); }
+    catch { return; }
+    const target = document.getElementById(id);
+    if (!target) return;
+    let parent = target.parentElement;
+    let expanded = false;
+    while (parent) {
+      if (parent instanceof HTMLDetailsElement && !parent.open) {
+        parent.open = true;
+        expanded = true;
+      }
+      parent = parent.parentElement;
+    }
+    if (expanded) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+  }
+  revealLinkedSection();
+  window.addEventListener('hashchange', revealLinkedSection);
+  document.addEventListener('astro:page-load', revealLinkedSection);
+</script>

@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ArrowIcon from '../../components/ArrowIcon.astro';
 import Jobs from '../../sections/Jobs/index.astro';
 import socials from '../../data/socials.json';
 ---
 <Layout title="CV — David Hernández / Rojo" description="Professional experience, education, and selected independent products by David Hernández, software engineer and product designer.">
   <main id="main" class="page-width" tabindex="-1">
-    <div class="page-intro cv-intro"><p class="eyebrow">Curriculum vitae / October 2026</p><h1>David Hernández<span style="color: var(--brown);"> / Rojo</span></h1><p>Software Engineer & Product Designer · Mexico City</p><div class="cv-contact"><a href={socials.socials.mail}>ad_rojo@outlook.com</a><a href={socials.socials.linkedin}>LinkedIn ↗</a><a href="https://www.adrojo.com/">adrojo.com</a></div><p>I connect product thinking with implementation: frontend and full-stack engineering, AI-powered creative tools, and independently shipped native applications.</p><button class="button print-button" type="button" style="margin-top: 24px;" id="print-cv">Print / Save as PDF ↓</button></div>
+    <div class="page-intro cv-intro"><p class="eyebrow">Curriculum vitae / October 2026</p><h1>David Hernández<span style="color: var(--brown);"> / Rojo</span></h1><p>Software Engineer & Product Designer · Mexico City</p><div class="cv-contact"><a href={socials.socials.mail}>ad_rojo@outlook.com</a><a href={socials.socials.linkedin}>LinkedIn <ArrowIcon size={16} /></a><a href="https://www.adrojo.com/">adrojo.com</a></div><p>I connect product thinking with implementation: frontend and full-stack engineering, AI-powered creative tools, and independently shipped native applications.</p><button class="button print-button" type="button" style="margin-top: 24px;" id="print-cv">Print / Save as PDF <ArrowIcon direction="down" /></button></div>
     <Jobs />
     <section class="section cv-skills"><h2>Independent products</h2><p><a class="text-link" href="/projects/mini-briefs/">Mini Briefs</a> — news summaries, reading, and audio on web and iOS.<br /><a class="text-link" href="/projects/dine/">Dine</a> — native iOS personal and shared finances.</p><p>I define product direction and behavior, use AI coding agents extensively for design and implementation, and refine the experience through iteration.</p></section>
     <section class="section cv-skills"><h2>Education</h2><p><strong>Tecnológico de Monterrey · 2020</strong><br />Bachelor’s degree in Industrial Design<br />Specialization in Technological Product Design</p></section>

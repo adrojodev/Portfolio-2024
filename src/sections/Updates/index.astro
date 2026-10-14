@@ -1,4 +1,7 @@
 ---
 import data from '../../data/updates.json';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const Heading = compact ? 'h3' : 'h2';
 ---
-<section id="updates" class="section personal-notes"><p class="eyebrow">Away from the project list</p><h2>A few personal bookmarks.</h2><p class="archive-note">A small piece of the original portfolio, kept here as part of the story.</p><div class="bookmark-links"><span><img src="/icons/Backpack.svg" alt="" width="24" height="24" />An interest in {data.updates.learning.toLowerCase()}</span><a href={data.updates.book} target="_blank" rel="noopener noreferrer"><img src="/icons/BookBookmark.svg" alt="" width="24" height="24" />A book I bookmarked</a><a href={data.updates.music} target="_blank" rel="noopener noreferrer"><img src="/icons/CassetteTape.svg" alt="" width="24" height="24" />A playlist from the original site</a></div></section>
+<section id="updates" class:list={['section', 'personal-notes', { 'embedded-section': compact }]}><Heading>A few personal bookmarks.</Heading><div class="bookmark-links"><span><img src="/icons/Backpack.svg" alt="" width="24" height="24" />An interest in {data.updates.learning.toLowerCase()}</span><a href={data.updates.book} target="_blank" rel="noopener noreferrer"><img src="/icons/BookBookmark.svg" alt="" width="24" height="24" />A book I bookmarked</a><a href={data.updates.music} target="_blank" rel="noopener noreferrer"><img src="/icons/CassetteTape.svg" alt="" width="24" height="24" />A playlist from the original site</a></div></section>

@@ -2,14 +2,48 @@
 const path = Astro.url.pathname;
 const home = path === '/';
 const links = [
-  { href: '/projects/', label: 'Work', icon: 'Pencil', active: path.startsWith('/projects') },
-  { href: '/about/', label: 'About', icon: 'Briefcase', active: path.startsWith('/about') },
-  { href: home ? '#connect' : '/#connect', label: 'Connect', icon: 'EnvelopeSimple', active: false },
+  { href: home ? '#projects' : '/#projects', label: 'Work', icon: 'Pencil' },
+  { href: home ? '#about' : '/#about', label: 'About', icon: 'Briefcase' },
+  { href: home ? '#connect' : '/#connect', label: 'Connect', icon: 'EnvelopeSimple' },
 ];
 ---
-<header class="site-header page-width">
-  <a class="wordmark" href="/" aria-label="Rojo — home">Rojo<span aria-hidden="true">.</span></a>
+<header id="top" class="site-header page-width">
+  <a class="wordmark" href="/" aria-label="Rojo — home"><span class="wordmark-text">Rojo</span><span class="wordmark-dot" aria-hidden="true">.</span></a>
+  <a class="mobile-home" href={home ? '#top' : '/'} aria-label="Home" aria-hidden="true" tabindex="-1" inert>
+    <img src="/icons/House.svg" alt="" width="22" height="22" />
+  </a>
   <nav aria-label="Main navigation" class="navigation">
-    {links.map(link => <a href={link.href} aria-current={link.active ? 'page' : undefined}><img src={`/icons/${link.icon}.svg`} alt="" width="20" height="20" /><span>{link.label}</span></a>)}
+    {links.map(link => <a href={link.href}><img src={`/icons/${link.icon}.svg`} alt="" width="20" height="20" /><span>{link.label}</span></a>)}
   </nav>
 </header>
+<script>
+  let cleanupHomeButton: (() => void) | undefined;
+
+  function setupHomeButton() {
+    cleanupHomeButton?.();
+    const wordmark = document.querySelector<HTMLElement>('.site-header .wordmark');
+    const homeButton = document.querySelector<HTMLAnchorElement>('.mobile-home');
+    if (!wordmark || !homeButton) return;
+
+    const mobile = window.matchMedia('(max-width: 600px)');
+    const update = () => {
+      const visible = mobile.matches && wordmark.getBoundingClientRect().bottom <= 0;
+      homeButton.dataset.visible = String(visible);
+      homeButton.inert = !visible;
+      homeButton.tabIndex = visible ? 0 : -1;
+      homeButton.setAttribute('aria-hidden', String(!visible));
+    };
+    const observer = new IntersectionObserver(update);
+    observer.observe(wordmark);
+    mobile.addEventListener('change', update);
+    update();
+    cleanupHomeButton = () => {
+      observer.disconnect();
+      mobile.removeEventListener('change', update);
+    };
+  }
+
+  setupHomeButton();
+  document.addEventListener('astro:page-load', setupHomeButton);
+  document.addEventListener('astro:before-swap', () => cleanupHomeButton?.());
+</script>

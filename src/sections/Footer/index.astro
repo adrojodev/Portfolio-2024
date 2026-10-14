@@ -1,3 +1,99 @@
 ---
+import ArrowIcon from '../../components/ArrowIcon.astro';
 ---
-<footer id="footer" class="site-footer"><div class="page-width"><a href="/" class="footer-wordmark">Rojo<span>.</span></a><span class="footer-location"><img src="/icons/GlobeHemisphereWest.svg" alt="" width="22" height="22" /> Mexico City</span><a href="#main" class="back-top">Back to top ↑</a></div></footer>
+<footer id="footer" class="site-footer">
+  <div class="page-width">
+    <a href="/" class="footer-wordmark" aria-label="Rojo — home"><span class="wordmark-text">Rojo</span><span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <button type="button" class="footer-location" aria-label="Celebrate Mexico City"><img src="/icons/GlobeHemisphereWest.svg" alt="" width="22" height="22" /> Mexico City</button>
+    <a href="#main" class="back-top">Back to top <ArrowIcon direction="up" size={16} /></a>
+  </div>
+</footer>
+<script>
+  let cleanupConfetti: (() => void) | undefined;
+
+  function setupMexicoConfetti() {
+    cleanupConfetti?.();
+    const trigger = document.querySelector<HTMLButtonElement>('.footer-location');
+    if (!trigger) return;
+    let canvas: HTMLCanvasElement | undefined;
+    let frame = 0;
+    const stop = () => {
+      cancelAnimationFrame(frame);
+      canvas?.remove();
+      canvas = undefined;
+    };
+    const celebrate = () => {
+      if (canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const origin = trigger.getBoundingClientRect();
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const scale = Math.min(window.devicePixelRatio || 1, 2);
+      canvas = document.createElement('canvas');
+      canvas.className = 'mexico-confetti';
+      canvas.setAttribute('aria-hidden', 'true');
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+      document.body.append(canvas);
+      const context = canvas.getContext('2d');
+      if (!context) { stop(); return; }
+      context.scale(scale, scale);
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      // Decorative flag emoji live only in the canvas, never in layout or controls.
+      const flag = String.fromCodePoint(0x1f1f2, 0x1f1fd);
+      const particles = Array.from({ length: 24 }, () => ({
+        x: origin.left + origin.width / 2,
+        y: Math.min(origin.top + origin.height / 2, height - 20),
+        vx: (Math.random() - .5) * 250,
+        vy: -220 - Math.random() * 220,
+        angle: Math.random() * Math.PI,
+        spin: (Math.random() - .5) * 5,
+        size: 20 + Math.random() * 12,
+      }));
+      let started = 0;
+      let previous = 0;
+      const paint = (time: number) => {
+        if (!started) { started = time; previous = time; }
+        const elapsed = (time - started) / 1000;
+        const dt = Math.min((time - previous) / 1000, .04);
+        previous = time;
+        context.clearRect(0, 0, width, height);
+        context.globalAlpha = Math.min(1, Math.max(0, (2.4 - elapsed) / .45));
+        for (const particle of particles) {
+          particle.x += particle.vx * dt;
+          particle.y += particle.vy * dt;
+          particle.vy += 390 * dt;
+          particle.angle += particle.spin * dt;
+          context.save();
+          context.translate(particle.x, particle.y);
+          context.rotate(particle.angle);
+          context.font = `${particle.size}px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif`;
+          context.fillText(flag, 0, 0);
+          context.restore();
+        }
+        if (elapsed < 2.4) frame = requestAnimationFrame(paint);
+        else stop();
+      };
+      frame = requestAnimationFrame(paint);
+    };
+    const hover = (event: PointerEvent) => {
+      if (event.pointerType === 'mouse') celebrate();
+    };
+    trigger.addEventListener('pointerenter', hover);
+    trigger.addEventListener('click', celebrate);
+    window.addEventListener('resize', stop);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    reducedMotion.addEventListener('change', stop);
+    cleanupConfetti = () => {
+      stop();
+      trigger.removeEventListener('pointerenter', hover);
+      trigger.removeEventListener('click', celebrate);
+      window.removeEventListener('resize', stop);
+      reducedMotion.removeEventListener('change', stop);
+    };
+  }
+
+  setupMexicoConfetti();
+  document.addEventListener('astro:page-load', setupMexicoConfetti);
+  document.addEventListener('astro:before-swap', () => cleanupConfetti?.());
+</script>

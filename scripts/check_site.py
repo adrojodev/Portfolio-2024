@@ -8,6 +8,14 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1] / "dist"
 
+def is_emoji_or_icon_glyph(char):
+    point = ord(char)
+    return (
+        0x1F000 <= point <= 0x1FAFF
+        or 0x2600 <= point <= 0x27BF
+        or char in "↗↖↙↘↕↔↑↓←→\ufe0f"
+    )
+
 
 class Document(HTMLParser):
     def __init__(self, path):
@@ -19,7 +27,11 @@ class Document(HTMLParser):
         self.meta = {}
         self.counts = {"html": 0, "head": 0, "body": 0, "main": 0, "h1": 0}
         self.canonical = None
+        self.redirect = None
         self.feed(path.read_text())
+
+    def handle_data(self, data):
+        assert not any(is_emoji_or_icon_glyph(char) for char in data), f"Emoji or Unicode icon in {self.path}; use SVG icons instead"
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -30,6 +42,8 @@ class Document(HTMLParser):
             self.ids.add(attrs["id"])
         if tag == "meta":
             self.meta[attrs.get("property", attrs.get("name"))] = attrs.get("content")
+            if attrs.get("http-equiv", "").lower() == "refresh":
+                self.redirect = attrs.get("content", "").partition(";url=")[2]
         if tag == "a":
             assert attrs.get("href"), f"Missing href in {self.path}"
             self.links.append(attrs["href"])
@@ -55,17 +69,30 @@ def resolve_page(url, current):
     return target / "index.html" if target.is_dir() else target
 
 
+for source in (ROOT.parent / "src").rglob("*"):
+    if source.suffix in {".astro", ".tsx", ".ts", ".json", ".css"}:
+        assert not any(is_emoji_or_icon_glyph(char) for char in source.read_text()), f"Emoji or Unicode icon in {source}; use SVG icons instead"
+
 documents = {path.resolve(): Document(path) for path in ROOT.rglob("*.html")}
 assert len(documents) == 9, f"Expected nine static pages, found {len(documents)}"
+redirects = {"about/index.html": "/#about", "projects/index.html": "/#projects"}
 for path, doc in documents.items():
-    assert all(count == 1 for count in doc.counts.values()), f"Invalid document structure in {path}: {doc.counts}"
-    assert "main" in doc.ids, f"Missing skip-link destination in {path}"
-    expected_url = "https://www.adrojo.com/" + str(path.relative_to(ROOT)).removesuffix("index.html")
-    assert doc.canonical == expected_url, f"Wrong canonical for {path}"
-    assert doc.meta.get("description"), f"Missing description in {path}"
-    assert doc.meta.get("og:url") == expected_url, f"Wrong sharing URL in {path}"
-    assert doc.meta.get("twitter:card") == "summary_large_image"
-    assert doc.meta.get("og:image", "").startswith("https://www.adrojo.com/")
+    relative = str(path.relative_to(ROOT))
+    if relative in redirects:
+        assert doc.redirect == redirects[relative], f"Wrong redirect for {path}"
+        assert doc.canonical == doc.redirect, f"Wrong redirect canonical for {path}"
+        assert doc.redirect in doc.links, f"Missing redirect fallback link in {path}"
+        assert doc.meta.get("robots") == "noindex", f"Redirect should not be indexed: {path}"
+    else:
+        assert not doc.redirect, f"Unexpected redirect in {path}"
+        assert all(count == 1 for count in doc.counts.values()), f"Invalid document structure in {path}: {doc.counts}"
+        assert "main" in doc.ids, f"Missing skip-link destination in {path}"
+        expected_url = "https://www.adrojo.com/" + relative.removesuffix("index.html")
+        assert doc.canonical == expected_url, f"Wrong canonical for {path}"
+        assert doc.meta.get("description"), f"Missing description in {path}"
+        assert doc.meta.get("og:url") == expected_url, f"Wrong sharing URL in {path}"
+        assert doc.meta.get("twitter:card") == "summary_large_image"
+        assert doc.meta.get("og:image", "").startswith("https://www.adrojo.com/")
     for asset in doc.assets:
         if not urlsplit(asset).scheme:
             assert (ROOT / unquote(urlsplit(asset).path).lstrip("/")).is_file(), f"Missing asset {asset} in {path}"
@@ -77,4 +104,4 @@ for path, doc in documents.items():
         assert target.is_file(), f"Broken local link {link} in {path}"
         if url.fragment:
             assert target in documents and unquote(url.fragment) in documents[target].ids, f"Broken anchor {link} in {path}"
-print(f"PASS: {len(documents)} pages; unique IDs, document landmarks, local links/anchors, image dimensions, asset files, safe external links, and sharing metadata.")
+print(f"PASS: {len(documents) - len(redirects)} pages and {len(redirects)} legacy redirects; no emoji/icon glyphs, unique IDs, document landmarks, local links/anchors, image dimensions, asset files, safe external links, and sharing metadata.")

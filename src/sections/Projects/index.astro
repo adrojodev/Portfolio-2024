@@ -1,13 +1,16 @@
 ---
 import Card from '../../components/Card.astro';
 import data from '../../data/projects.json';
-const featured = data.projects.filter(project => 'featured' in project && project.featured);
-const team = data.projects.filter(project => ['lummi', 'lyft-business'].includes(project.id));
+const selected = data.projects.filter(project => 'caseStudy' in project && project.caseStudy);
+const more = data.projects.filter(project => !('caseStudy' in project && project.caseStudy));
 ---
 <section id="projects" class="section work-section">
-  <div class="section-heading"><h2>A few things I’ve helped bring to life.</h2><a class="text-link" href="/projects/">All projects</a></div>
+  <div class="section-heading"><h2>A few things I’ve helped bring to life.</h2></div>
   <div class="featured-grid">
-    {featured.map(project => <Card project={project} />)}
-    {team.map(project => <Card project={project} />)}
+    {selected.map(project => <Card project={project} />)}
   </div>
+  <details class="section-disclosure work-disclosure">
+    <summary><span class="disclosure-closed">See all work</span><span class="disclosure-open">Hide extra projects</span></summary>
+    <div id="archive" class="project-grid">{more.map(project => <Card project={project} />)}</div>
+  </details>
 </section>
