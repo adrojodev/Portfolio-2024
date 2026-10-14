@@ -1,25 +1,8 @@
 ---
-import data from "../../data/jobs.json";
-import Heading from "../../components/Heading.astro";
-
-const jobs = data.jobs;
+import data from '../../data/jobs.json';
 ---
-
-<section id="jobs" class="flex flex-col gap-1">
-  <Heading>Jobs</Heading>
-  <div class="flex flex-col gap-5">
-    {
-      jobs.map((job) => (
-        <div class="flex flex-col gap-0">
-          <h3 class="font-bold text-accent text-lg md:text-xl">
-            {job.company}{" "}
-            <span class="font-medium text-body md:text-lg">
-              {job.startYear} - {job.endYear}
-            </span>
-          </h3>
-          <p class="text-body">{job.text}</p>
-        </div>
-      ))
-    }
-  </div>
+<section id="jobs" class="section experience-section">
+  <div class="section-heading"><div><p class="eyebrow">Experience</p><h2>Different teams.<br />A shared way of working.</h2></div></div>
+  <p class="experience-note">Several startup roles overlapped. These are distinct product and employment identities, rather than a sequence of unrelated full-time jobs.</p>
+  <ol class="experience-list">{data.jobs.map(job => <li><div class="job-heading"><h3>{job.company}</h3><span>{job.start} — {job.end}</span></div><div><p class="job-role">{job.role}</p><p>{job.text}</p></div></li>)}</ol>
 </section>

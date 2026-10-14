@@ -1,28 +1,13 @@
 ---
-import Button from "../../components/Button.astro";
+import { Image } from 'astro:assets';
+import profile from '../../../public/images/Profile.png';
+import socials from '../../data/socials.json';
 ---
-
-<section
-  id="heading"
-  class="flex flex-col justify-center h-[84dvh] gap-4 md:flex-row-reverse md:justify-between md:items-center"
->
-  <img
-    class="-ml-16 -mt-16 -mb-16 w-[200px] md:w-[700px] md:h-[615px] md:-ml-48 md:mt-0 md:mb-0 md:-mr-40"
-    src="/images/Profile.png"
-    alt="A memoji of myself with a colored blurred bubble behind me"
-  />
-  <div class="flex flex-col md:w-full gap-4">
-    <div class="flex flex-col items-start gap-2">
-      <h1
-        class="font-black text-[2.5rem] leading-[2rem] w-[21rem] text-heading md:text-7xl md:w-full md:leading-[3.5rem]"
-      >
-        Always creating something beautiful 
-      </h1>
-      <p class="md:text-2xl">
-        Hi! My name is <span class="font-bold text-accent">Rojo</span>, I'm a
-        designer, software engineer, designer and ai enthusiast.
-      </p>
-    </div>
-    <Button href="#connect">Let's connect</Button>
+<section id="heading" class="hero">
+  <div class="hero-copy">
+    <h1>Good products take<br /><span class="design-word">design</span> and <span class="code-word">code.</span></h1>
+    <p class="hero-intro">Hi, I’m <strong>Rojo</strong> — a software engineer and product designer, currently building at <a class="lyft-link" href="/projects/lyft-business/">Lyft</a>.</p>
+    <div class="hero-links"><a class="button" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="text-link" href={socials.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="/cv/">CV <span aria-hidden="true">↗</span></a></div>
   </div>
+  <div class="hero-portrait"><Image src={profile} alt="Rojo’s original red-haired Memoji avatar with a colorful glow" width={440} widths={[240, 440, 660]} sizes="(min-width: 800px) 330px, 170px" format="webp" loading="eager" /></div>
 </section>

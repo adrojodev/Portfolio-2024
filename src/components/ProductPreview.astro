@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import { projectMedia, projectCovers, dineIcon } from '../data/project-media';
+interface Props { id: string; detail?: boolean; }
+const { id, detail = false } = Astro.props;
+const isApp = id === 'dine' || id === 'mini-briefs';
+const isGallery = isApp && detail;
+const isDineCover = id === 'dine' && !detail;
+const isMusho = id === 'musho';
+const isBriefsGallery = id === 'mini-briefs' && detail;
+const images = !detail && projectCovers[id] ? [projectCovers[id]] : projectMedia[id] ?? [];
+---
+<div class:list={['product-preview', id, { 'app-preview': isGallery, 'briefs-gallery': isBriefsGallery, 'dine-cover': isDineCover, 'detail-preview': detail }]}>
+  {isBriefsGallery ? (
+    images.map(image => <div class="briefs-preview-panel"><Image src={image.src} alt={image.alt} width={739} widths={[320, 480, 739]} sizes="(min-width: 1144px) 330px, (min-width: 601px) 31vw, 42vw" format="webp" quality={95} loading="lazy" /></div>)
+  ) : isDineCover ? (
+    <>
+      <div class="dine-cover-brand"><Image src={dineIcon} alt="Dine’s green app icon, a smiling banknote" width={320} widths={[96, 160, 240, 320]} sizes="(min-width: 800px) 150px, 26vw" format="webp" quality={90} loading="lazy" /></div>
+      <div class="dine-cover-phone"><Image src={images[0].src} alt={images[0].alt} width={640} widths={[240, 400, 640]} sizes="(min-width: 800px) 280px, 48vw" format="webp" quality={90} loading="lazy" /></div>
+    </>
+  ) : images.map((image, index) => (
+    <Image src={image.src} alt={image.alt} widths={isGallery ? [240, 400, 640] : [...new Set([400, 800, 1120, isMusho ? image.src.width : Math.min(image.src.width, 1120)].filter(width => width <= image.src.width))]} sizes={isGallery ? '(min-width: 800px) 260px, 42vw' : detail ? '(min-width: 1144px) 1080px, 90vw' : '(min-width: 1000px) 600px, 90vw'} width={isGallery ? 640 : Math.min(image.src.width, 1120)} format="webp" quality={isMusho ? 100 : 85} loading="lazy" class:list={['product-image', { 'third-screen': index === 2 }]} />
+  ))}
+</div>

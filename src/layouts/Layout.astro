@@ -1,53 +1,43 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import "@fontsource-variable/work-sans";
-
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import { ViewTransitions } from 'astro:transitions';
+import '@fontsource-variable/work-sans';
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../sections/Footer/index.astro';
+interface Props { title: string; description?: string; image?: string; }
+const { title, description = 'David Hernández (Rojo) is a software engineer and product designer in Mexico City. Explore AI creative tools, independent iOS apps, and production engineering.', image = '/og-image.jpg' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, 'https://www.adrojo.com/').href;
+const socialImage = new URL(image, 'https://www.adrojo.com/').href;
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="I'm Rojo, visit my portfolio!" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="view-transition" content="same-origin" />
-    <meta name="og:title" content={title} />
-    <meta name="og:description" content="I'm Rojo, visit my portfolio!" />
-    <meta name="og:image" content="/og-image.jpg" />
-    <meta name="og:url" content="https://adrojo.com" />
-    <meta name="og:type" content="website" />
-    <meta name="og:site_name" content="Rojo's Portfolio" />
-    <meta name="og:locale" content="en_US" />
-    <meta name="og:locale:alternate" content="es_ES" />
-    <meta name="twitter:card" content="/og-image.jpg" />
-    <meta name="twitter:site" content="@ad_rojo" />
-    <meta name="twitter:title" content="My Portfolio" />
-    <meta name="twitter:description" content="I'm Rojo, visit my portfolio!" />
-    <meta name="twitter:image" content="/og-image.png" />
-    <meta name="apple-mobile-web-app-title" content="Rojo" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Rojo’s red-haired avatar on a warm cream background" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rojo — Design & Engineering" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="Rojo’s red-haired avatar on a warm cream background" />
+    <meta name="theme-color" content="#FBF8F4" />
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body
-    class="flex flex-col gap-10 font-medium bg-background text-body border-border"
-  >
+  <body class="bg-background text-body">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Navigation />
     <slot />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "Work Sans Variable", sans-serif;
-      }
-    </style>
+    <Footer />
   </body>
 </html>

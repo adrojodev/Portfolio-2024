@@ -1,0 +1,15 @@
+---
+const path = Astro.url.pathname;
+const home = path === '/';
+const links = [
+  { href: '/projects/', label: 'Work', icon: 'Pencil', active: path.startsWith('/projects') },
+  { href: '/about/', label: 'About', icon: 'Briefcase', active: path.startsWith('/about') },
+  { href: home ? '#connect' : '/#connect', label: 'Connect', icon: 'EnvelopeSimple', active: false },
+];
+---
+<header class="site-header page-width">
+  <a class="wordmark" href="/" aria-label="Rojo — home">Rojo<span aria-hidden="true">.</span></a>
+  <nav aria-label="Main navigation" class="navigation">
+    {links.map(link => <a href={link.href} aria-current={link.active ? 'page' : undefined}><img src={`/icons/${link.icon}.svg`} alt="" width="20" height="20" /><span>{link.label}</span></a>)}
+  </nav>
+</header>

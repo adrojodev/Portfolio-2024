@@ -1,26 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-import Menu from "../components/Menu";
-
-import Heading from "../sections/Heading/index.astro";
-import Projects from "../sections/Projects/index.astro";
-import Jobs from "../sections/Jobs/index.astro";
-import Updates from "../sections/Updates/index.astro";
-import Connect from "../sections/Connect/index.astro";
-import Footer from "../sections/Footer/index.astro";
+import Layout from '../layouts/Layout.astro';
+import Heading from '../sections/Heading/index.astro';
+import Projects from '../sections/Projects/index.astro';
+import Connect from '../sections/Connect/index.astro';
+import About from '../sections/About/index.astro';
 ---
-
-<Layout title="Rojo">
-  <main class="relative flex flex-col justify-center items-center gap-10">
-    <Menu isHome client:load />
-    <div class="flex flex-col gap-10 w-screen px-4 md:max-w-4xl">
-      <Heading />
-      <Projects />
-      <Jobs />
-      <Updates />
-      <Connect />
-    </div>
-    <Footer />
+<Layout title="Rojo — Software Engineer & Product Designer">
+  <main id="main" class="page-width" tabindex="-1">
+    <Heading />
+    <Projects />
+    <About />
+    <Connect />
   </main>
 </Layout>

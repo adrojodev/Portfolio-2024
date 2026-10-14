@@ -1,52 +1,19 @@
 ---
+import ProductPreview from './ProductPreview.astro';
+import type data from '../data/projects.json';
+interface Props { project: (typeof data.projects)[number]; }
 const { project } = Astro.props;
-const tags = project.tags;
+const internal = 'caseStudy' in project && project.caseStudy;
+const href = internal ? `/projects/${project.id}/` : project.url;
 ---
-
-<aside transition:name={`card-${project.name}`}>
-  <a
-    href={project.url}
-    target="_blank"
-    class="flex flex-col shadow-lg shadow-border-muted/20 gap-2 py-3 border bg-background/50 backdrop-blur-xl border-border-muted rounded-2xl cursor-pointer md:hover:scale-105 transition-transform"
-  >
-    <div class="flex flex-col px-3 gap-2">
-      <img
-        class="w-full h-60 object-cover object-center rounded-xl"
-        src=`/images/projects/${project.id}.jpg`
-      />
-      <div class="flex flex-col gap-0.5 md:gap-0">
-        <h3 class="text-xl md:text-2xl font-bold">{project.name}</h3>
-        <span class="md:text-lg">
-          {project.company} - {project.date}
-        </span>
-      </div>
-    </div>
-    <div class="flex gap-2 h-fit w-full max-w-full relative">
-      <div
-        class="w-6 left-0 h-full absolute bg-gradient-to-r from-background via-background to-transparent"
-      >
-      </div>
-      <div class="flex w-fit gap-2 overflow-x-auto px-4 no-scrollbar">
-        {
-          tags.map((tag: string) => {
-            return (
-              <span class="w-fit min-w-fit h-fit min-h-fit bg-border-muted border border-border px-2 rounded-full">
-                {tag}
-              </span>
-            );
-          })
-        }
-      </div>
-      <div
-        class="right-0 w-6 h-full absolute bg-gradient-to-l from-background via-background to-transparent"
-      >
-      </div>
+<article class="project-card">
+  <a href={href} class="project-link" target={internal ? undefined : '_blank'} rel={internal ? undefined : 'noopener noreferrer'}>
+    <ProductPreview id={project.id} />
+    <div class="project-copy">
+      <div class="project-meta"><span>{project.platform}</span><span>{project.date}</span></div>
+      <h3>{project.name}<span aria-hidden="true" class="project-arrow">↗</span></h3>
+      <p>{project.summary}</p>
+      <div class="project-role">{project.role}</div>
     </div>
   </a>
-</aside>
-
-<style>
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-</style>
+</article>

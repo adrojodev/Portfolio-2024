@@ -2,33 +2,52 @@
   "jobs": [
     {
       "company": "Lyft",
-      "startYear": "2024",
-      "endYear": "Present",
-      "text": "At Lyft, I work as a Software Engineer, where I am responsible for building and maintaining the Lyft B2B platform. I work as a full-stack developer, working on the frontend and backend of the platform with cross-functional teams to deliver the best experience for our drivers and customers."
+      "role": "Software Engineer",
+      "start": "October 2024",
+      "end": "Present",
+      "text": "I lead frontend initiatives and contribute across the stack on Lyft Business, collaborating with designers, product managers, and engineers."
     },
     {
-      "company": "Bueno (Blush Inc.)",
-      "startYear": "2022",
-      "endYear": "2024",
-      "text": "At Bueno, I flourished as a Front-End Developer, where crafting pixel-perfect interfaces was my jam. Collaborating closely with designers, I juggled multiple projects, seamlessly integrating front-end magic with backend JavaScript and databases, all with an unwavering focus on detail."
+      "company": "Musho AI",
+      "role": "Co-creator and Dev",
+      "start": "September 2023",
+      "end": "September 2024",
+      "text": "Co-created an AI design assistant in Figma, contributing software engineering and collaborating with designers on the product experience."
     },
     {
-      "company": "Together",
-      "startYear": "2022",
-      "endYear": "2023",
-      "text": "At Together, I embraced the role of Front-End Developer, pioneering web-based video game projects and empowering designers to craft websites with no-code tools. Beyond coding, I was instrumental in democratizing design, sharing our creative vision with the world."
+      "company": "Lummi",
+      "role": "Software Engineer",
+      "start": "November 2023",
+      "end": "September 2024",
+      "text": "Worked on engineering for an AI-curated image discovery product, participating in design discussions and interaction refinement with the team."
+    },
+    {
+      "company": "Bueno",
+      "role": "Dev and Community",
+      "start": "November 2022",
+      "end": "September 2024",
+      "text": "Developed frontend experiences for creative web3 tools, including Buenoverse, with product collaboration and improvements informed by the community."
+    },
+    {
+      "company": "Humankind",
+      "role": "Frontend Developer",
+      "start": "March 2022",
+      "end": "April 2024",
+      "text": "Built interactive web experiences and games, with attention to visual fidelity and the details of how each interaction feels."
     },
     {
       "company": "BBVA",
-      "startYear": "2021",
-      "endYear": "2022",
-      "text": "At BBVA, as a UX Designer, I honed in on enhancing the mobile app experience, tailoring designs to the nuanced needs of banking, insurance, and wealth market sectors. My mission: to elevate user interaction across various products, ensuring elegance and efficiency."
+      "role": "Product Designer Trainee",
+      "start": "February 2022",
+      "end": "November 2022",
+      "text": "Worked on digital product interfaces, usability, and user experience in collaboration with engineering teams."
     },
     {
       "company": "Berrinche Studio",
-      "startYear": "2018",
-      "endYear": "2021",
-      "text": "At Berrinche Studio, my brainchild, I spearheaded efforts to attract clients, crafting the studio's identity with a keen eye. Specializing in tech-heavy giants, we delivered bespoke websites, apps, and more, blending design and development to breathe life into our clients' visions."
+      "role": "Co-founder and Engineer",
+      "start": "November 2020",
+      "end": "November 2022",
+      "text": "Co-founded a studio designing and developing websites and e-commerce experiences for small and medium-sized businesses."
     }
   ]
 }

@@ -1,53 +1,10 @@
 ---
-import Heading from "../../components/Heading.astro";
-import data from "../../data/socials.json";
-
-const { linkedin, github, x, instagram, mail } = data.socials;
+import data from '../../data/socials.json';
+const { linkedin, github, instagram, mail } = data.socials;
+const links = [{ name: 'LinkedIn', href: linkedin, icon: 'LinkedinLogo' }, { name: 'GitHub', href: github, icon: 'GithubLogo' }, { name: 'Instagram', href: instagram, icon: 'InstagramLogo' }];
 ---
-
-<section id="connect" class="flex flex-col gap-3">
-  <Heading>Let's connect</Heading>
-  <div class="flex gap-3">
-    <a
-      target="_blank"
-      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
-      href={x}
-      ><img src="/icons/XIcon.svg" alt="x logo" class="md:w-8 md:h-8" /></a
-    >
-    <a
-      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
-      href={github}
-      ><img src="/icons/GithubLogo.svg" alt="x logo" class="md:w-8 md:h-8" /></a
-    >
-    <a
-      target="_blank"
-      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
-      href={linkedin}
-      ><img
-        src="/icons/LinkedinLogo.svg"
-        alt="x logo"
-        class="md:w-8 md:h-8"
-      /></a
-    >
-    <a
-      target="_blank"
-      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
-      href={instagram}
-      ><img
-        src="/icons/InstagramLogo.svg"
-        alt="x logo"
-        class="md:w-8 md:h-8"
-      /></a
-    >
-    <a
-      target="_blank"
-      class="border-border border-2 rounded-xl p-1 md:p-1.5 md:hover:bg-border transition-colors"
-      href={mail}
-      ><img
-        src="/icons/EnvelopeSimple.svg"
-        alt="x logo"
-        class="md:w-8 md:h-8"
-      /></a
-    >
-  </div>
+<section id="connect" class="section connect-section">
+  <h2>Something worth<br />building together?</h2>
+  <a class="contact-email" href={mail}>ad_rojo@outlook.com</a>
+  <div class="social-links">{links.map(link => <a href={link.href} target="_blank" rel="noopener noreferrer"><img src={`/icons/${link.icon}.svg`} alt="" width="22" height="22" /><span>{link.name}</span></a>)}</div>
 </section>

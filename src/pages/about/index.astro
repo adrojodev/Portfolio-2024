@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Jobs from '../../sections/Jobs/index.astro';
+import Updates from '../../sections/Updates/index.astro';
+import Connect from '../../sections/Connect/index.astro';
+---
+<Layout title="About — Rojo" description="Rojo’s interest in UI design, product details, and making things, alongside his experience building digital products.">
+  <main id="main" class="page-width" tabindex="-1">
+    <div class="page-intro"><h1>I love a<br />good interface.</h1><p>I’m Rojo. UI design, products, and the details of how they work are what keep me curious.</p></div>
+    <section class="section about-section"><h2>The details<br />are the fun part.</h2><div class="about-copy"><p>I’m drawn to the whole experience: the type, the spacing, how an interaction responds, and whether the product makes sense when you use it.</p><p>I like being involved from the first idea through the details of implementation. Designing and building are both ways for me to explore what a product could become.</p><p>My own apps give me room to experiment. I set the direction, work with AI coding agents, and keep reviewing and refining what we make.</p><a class="text-link" href="/cv/">My CV ↗</a></div></section>
+    <Jobs />
+    <Updates />
+    <Connect />
+  </main>
+</Layout>

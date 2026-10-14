@@ -1,19 +1,25 @@
 {
   "projects": [
     {
-      "id": "lummi",
-      "name": "Lummi",
-      "date": "2023",
-      "company": "Bueno",
-      "url": "https://lummi.ai/",
+      "id": "musho",
+      "name": "Musho",
+      "date": "2023–2024",
+      "company": "Musho AI",
+      "url": "https://www.youtube.com/watch?v=ubtINDoCttw",
       "protected": false,
-      "tags": ["Typescript", "Next.js", "Tailwind CSS", "Neon", "Prisma", "AI"]
+      "tags": [],
+      "role": "Co-creator and Dev",
+      "summary": "An AI design assistant that turned prompts into editable interfaces in Figma.",
+      "platform": "Figma plugin",
+      "status": "Historical project",
+      "featured": true,
+      "caseStudy": true
     },
     {
       "id": "mini-briefs",
       "name": "Mini Briefs",
-      "date": "2025",
-      "company": "Self project",
+      "date": "2025–present",
+      "company": "Independent",
       "url": "https://www.minibriefs.news/",
       "protected": false,
       "tags": [
@@ -24,16 +30,54 @@
         "Typescript",
         "Next.js",
         "Tailwind CSS"
-      ]
+      ],
+      "role": "Product direction & AI-assisted development",
+      "summary": "A little less scrolling. A little more understanding. News to read and listen to.",
+      "platform": "Web & iOS",
+      "status": "Live product",
+      "featured": true,
+      "caseStudy": true
     },
     {
-      "id": "happy-scroll",
-      "name": "Happy Scroll",
-      "date": "2025",
-      "company": "Self project",
-      "url": "https://www.happyscroll.app/",
+      "id": "dine",
+      "name": "Dine",
+      "date": "2026–present",
+      "company": "Independent",
+      "url": "https://apps.apple.com/us/app/dine/id6799501885",
+      "role": "Product direction & AI-assisted development",
+      "summary": "Personal and shared finances, with a native experience and intelligence on your device.",
+      "platform": "Native iOS",
+      "status": "Live product",
+      "featured": true,
+      "caseStudy": true,
+      "tags": []
+    },
+    {
+      "id": "lummi",
+      "name": "Lummi",
+      "date": "2023–2024",
+      "company": "Lummi",
+      "url": "https://lummi.ai/",
       "protected": false,
-      "tags": ["AI", "Swift", "SwiftUI", "SwiftData"]
+      "tags": [],
+      "role": "Software Engineer",
+      "summary": "A curated image library for finding the right visual and getting back to creating.",
+      "platform": "Web · Figma integration",
+      "status": "Team project",
+      "caseStudy": true
+    },
+    {
+      "id": "lyft-business",
+      "name": "Lyft Business",
+      "date": "2024–present",
+      "company": "Lyft",
+      "url": "https://www.lyft.com/business",
+      "role": "Software Engineer",
+      "summary": "Frontend initiatives and full-stack engineering for Lyft Business.",
+      "platform": "Web",
+      "status": "Current role",
+      "caseStudy": true,
+      "tags": []
     },
     {
       "id": "happy-places",
@@ -42,7 +86,17 @@
       "company": "Self project",
       "url": "https://apps.apple.com/mx/app/happy-places-ive-been/id6478132857",
       "protected": false,
-      "tags": ["MapKit", "Figma", "Swift", "SwiftData", "SwiftUI"]
+      "tags": [
+        "MapKit",
+        "Figma",
+        "Swift",
+        "SwiftData",
+        "SwiftUI"
+      ],
+      "role": "Independent development",
+      "summary": "A native app for keeping track of the places you have been.",
+      "platform": "iOS",
+      "status": "Independent project"
     },
     {
       "id": "buenoverse",
@@ -51,47 +105,42 @@
       "company": "Bueno",
       "url": "https://worlds.bueno.art/",
       "protected": false,
-      "tags": [
-        "DynamoDB",
-        "AWS",
-        "Auth0",
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS"
-      ]
+      "tags": [],
+      "role": "Frontend development & product collaboration",
+      "summary": "Interactive worlds built with a multidisciplinary creative team.",
+      "platform": "Web",
+      "status": "Historical work"
     },
     {
       "id": "wrestle",
       "name": "Wrestle",
       "date": "2023",
-      "company": "Together",
+      "company": "Humankind",
       "url": "https://www.humankind.art/wrestle",
       "protected": false,
-      "tags": [
-        "Web3",
-        "Firebase",
-        "AWS",
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS"
-      ]
+      "tags": [],
+      "role": "Frontend Developer",
+      "summary": "An interactive web game from the Humankind universe.",
+      "platform": "Web",
+      "status": "Historical work"
     },
     {
-      "id": "musho",
-      "name": "Musho",
-      "date": "2023",
-      "company": "Bueno",
-      "url": "https://www.youtube.com/watch?v=ubtINDoCttw",
+      "id": "happy-scroll",
+      "name": "Happy Scroll",
+      "date": "2025",
+      "company": "Self project",
+      "url": "https://www.happyscroll.app/",
       "protected": false,
       "tags": [
         "AI",
-        "Auth0",
-        "Neon",
-        "Prisma",
-        "Typescript",
-        "Next.js",
-        "Tailwind CSS"
-      ]
+        "Swift",
+        "SwiftUI",
+        "SwiftData"
+      ],
+      "role": "Independent development",
+      "summary": "An independent experiment with AI and native macOS.",
+      "platform": "macOS",
+      "status": "Independent project"
     },
     {
       "id": "keep-it-short",
@@ -100,7 +149,16 @@
       "company": "Self project",
       "url": "https://www.keepitshort.xyz/",
       "protected": false,
-      "tags": ["AI", "Javascript", "Next.js", "Tailwind CSS"]
+      "tags": [
+        "AI",
+        "Javascript",
+        "Next.js",
+        "Tailwind CSS"
+      ],
+      "role": "Independent development",
+      "summary": "An early experiment in making AI useful through a focused web tool.",
+      "platform": "Web",
+      "status": "Historical work"
     }
   ]
 }

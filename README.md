@@ -1,54 +1,43 @@
-# Astro Starter Kit: Basics
+# Rojo’s portfolio
+
+Personal portfolio for David Hernández (Rojo), built with the existing Astro 4, Tailwind CSS, React integration, and Work Sans stack. Static pages are generated at build time. The active navigation is plain HTML; React remains available for future interactive components.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template basics
+npm ci
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Use the local URL printed by Astro. No environment variables are needed for the portfolio.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Validation and preview
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build
+npm run check:site
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`build` runs Astro’s TypeScript diagnostics before the production build. `check:site` uses Python 3’s standard library to inspect the generated HTML for document structure, unique IDs, internal links and anchors, image dimensions, asset files, external-link attributes, and sharing metadata. There is no separate ESLint or unit-test configuration in this repository.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Content and architecture
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `src/pages/`: Home, Projects, About, printable CV, and five generated project detail routes.
+- `src/data/projects.json`: project summaries, roles, periods, original product URLs, and curation.
+- `src/data/case-studies.ts`: project-specific narratives, attribution, and public references.
+- `src/data/jobs.json`: verified employment dates and titles. Startup roles deliberately remain distinct despite overlapping dates.
+- `src/data/socials.json`: existing contact methods.
+- `src/data/project-media.ts`: original portfolio imagery and official app screenshots, imported for Astro image optimization.
+- `src/assets/products/`: source screenshots from Rojo’s own published apps.
+- `src/styles/global.css`: refinements using the existing palette, responsive layouts, focus states, reduced-motion support, and print styling.
 
-## 🧞 Commands
+Existing public images, icons, project URLs, and personal bookmarks are retained. The original home anchors remain available, with employment and bookmarks linking to their expanded About sections. Earlier React menu and small Astro components remain in the repository, but are not shipped as hydrated islands by the active pages.
 
-All commands are run from the root of the project, from a terminal:
+The CV is an HTML page with browser printing / Save as PDF. It is maintained from the same employment data as About.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Editorial maintenance
 
-## 👀 Want to learn more?
+See [content sources and outstanding material](docs/content-notes.md) for provenance, permissions, and areas that can be expanded with additional evidence. Browser review screenshots are in `docs/screenshots/`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Production is hosted on Vercel under the `portfolio-2024` project for `www.adrojo.com`. The production Git branch is `main`. Run the validation commands above before releasing changes. No hosting configuration or secrets were changed by the redesign.
