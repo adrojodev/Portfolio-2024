@@ -34,7 +34,7 @@ npm run preview
 
 Existing public images, icons, project URLs, and personal bookmarks are retained. Work shows five projects initially; “See all work” reveals five more. “More about me” reveals background, experience, and bookmarks. Both controls use native HTML disclosures. The menu scrolls to homepage sections, including when returning from the CV or a project page. Original employment, bookmarks, and archive anchors reveal their containing disclosure when followed. The former `/about/` and `/projects/` URLs redirect to the homepage sections. Earlier React menu and small Astro components remain in the repository, but are not shipped as hydrated islands by the active pages.
 
-The CV is an HTML page with browser printing / Save as PDF. It is maintained from the same employment data as About.
+The HTML CV shares employment data with About. Its “Download CV” button serves the owner-selected PDF at `public/cv/David-Hernandez-CV.pdf`, copied unchanged from `Downloads/DavidHernandezDesignEngineerCV.pdf`. Replace that asset when the supplied PDF changes; it is independent of the HTML timeline.
 
 ## Editorial maintenance
 

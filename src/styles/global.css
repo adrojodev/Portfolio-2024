@@ -209,7 +209,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .cv-skills h2 { margin-bottom: 20px; }
 .cv-skills p { max-width: 800px; }
 .cv-skills p + p { margin-top: 20px; }
-.print-button { border: 0; cursor: pointer; }
 @media (max-width: 800px) {
   .page-width { width: calc(100% - 40px); }
   .navigation { right: 20px; }
@@ -283,7 +282,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }
 @media print {
-  .site-header, .site-footer, .skip-link, .print-button, .no-print, .mexico-confetti { display: none !important; }
+  .site-header, .site-footer, .skip-link, .no-print, .mexico-confetti { display: none !important; }
   body { background: white; color: black; font-size: 10pt; }
   .page-width { width: 100%; }
   .page-intro, .section { padding-block: 12px; }
