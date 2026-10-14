@@ -10,7 +10,13 @@ import socials from '../../data/socials.json';
   <div class="hero-copy">
     <h1>Good products take<br /><span class="design-word">design</span> and <span class="code-word">code.</span></h1>
     <p class="hero-intro">Hi, I’m <strong>Rojo</strong> — a software engineer and product designer, currently building at <a class="lyft-link" href="/projects/lyft-business/">Lyft</a>.</p>
-    <div class="hero-links"><a class="button" href="#projects">Explore my work <ArrowIcon direction="down" /></a><a class="text-link linkedin-link" href={socials.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowIcon /></a><a class="text-link" href="/cv/">CV</a></div>
+    <div class="hero-links">
+      <div class="hero-secondary-links">
+        <a class="text-link linkedin-link" href={socials.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowIcon /></a>
+        <a class="text-link" href="/cv/">CV</a>
+      </div>
+      <a class="button" href="#projects">Explore my work <ArrowIcon direction="down" /></a>
+    </div>
   </div>
   <div class="hero-portrait"><Image src={profile} alt="Rojo’s original red-haired Memoji avatar with a colorful glow" width={440} widths={[240, 440, 660]} sizes="(min-width: 800px) 330px, 170px" format="webp" loading="eager" /></div>
 </section>

@@ -51,6 +51,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hero-intro a:hover { color: var(--orange); text-decoration-color: currentColor; }
 .hero-intro .lyft-link:hover, .hero-intro .lyft-link:focus-visible { color: var(--lyft-pink); text-decoration-color: currentColor; }
 .hero-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.hero-secondary-links { display: flex; align-items: center; gap: 24px; }
+.hero-links > .button { order: -1; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; background: var(--button-background); color: #fff; border-radius: 12px; padding: 12px 20px; font-size: .95rem; font-weight: 650; transition: background-color .2s, transform .2s, box-shadow .2s; }
 .button:hover { transform: translateY(-2px); box-shadow: var(--hover-shadow); }
 .button:focus-visible { outline-color: var(--ink); border-radius: 12px; }
@@ -239,7 +241,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   .mobile-home[data-visible='true'] { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition-delay: 0s; }
   .mobile-home:hover { background: var(--line); }
   .mobile-home:focus-visible { border-radius: 50%; }
-  .hero-links { gap: 20px; }
+  .hero-links { flex-direction: column; align-items: stretch; gap: 20px; }
+  .hero-links > .button { order: 0; align-self: flex-start; }
   .section-heading { flex-direction: column; gap: 16px; }
   .section-heading h2 { font-size: 2.2rem; }
   .featured-grid, .project-grid { grid-template-columns: 1fr; gap: 24px; }
